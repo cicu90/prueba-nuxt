@@ -13,7 +13,6 @@ export default {
   data () {
     return {
       queryName: '',
-      todoId: 1,
       response: {},
       artists: []
     }
