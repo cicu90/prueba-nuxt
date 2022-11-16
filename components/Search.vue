@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="container">
     <form>
-      <input v-model="queryName" type="text" name="find" placeholder="Search you artists here" />
-      <button @click.prevent="getArtists">Search</button>
+      <b-form-input v-model="queryName" type="text" name="find" class="mb-2" placeholder="Search you artists here" />
+      <b-button @click.prevent="getArtists" variant="success">Search</b-button>
     </form>
   </div>
 </template>
@@ -35,3 +35,7 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  @import '../assets/main.css'
+</style>

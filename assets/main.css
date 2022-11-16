@@ -1,0 +1,37 @@
+html, body { 
+    height: 100%; 
+    margin: 0;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    font-family: Lato, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+form {
+    display: flex;
+    margin-top: 5em;
+}
+input{
+    border: none;
+    border-bottom: 3px solid rgb(212, 187, 208);
+    padding: 2em 1em 2em 5em;
+    margin-right: 2em;
+    font-size: 1em;
+    color: rgb(212, 187, 208) ;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+    padding: 1em 3em 1em 3em;
+}
