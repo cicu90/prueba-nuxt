@@ -1,5 +1,7 @@
 # prueba-nuxt
 
+The base of this small repository is, to be able to make a search engine for Spotify artist profiles, and that the user can consult the profiles that have the same name and select their own, which is distinguished from the rest by a unique id. This code is made with the NuxtJS framework.
+
 ## Build Setup
 
 ```bash
