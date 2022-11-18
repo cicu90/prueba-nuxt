@@ -5,10 +5,18 @@
       <b-button variant="success" @click.prevent="getArtists">Search
       </b-button>
     </form>
+    <ul>
+      <li v-for="artist of artists" :key="artist.id">
+        <NuxtLink :to="`/${artist.id}`">
+          {{ artist.name }}
+        </NuxtLink>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'MySearch',
   data () {
@@ -29,9 +37,11 @@ export default {
       console.log('response', this.token)
     },
     async getArtists () {
-      const response = await this.$axios.$get(`/server-middleware/artists/${this.token}/${this.queryName}`
+      const response = await this.$axios.$get(
+        `/server-middleware/artists/${this.token}/${this.queryName}`
       )
       console.log('response', response.artists.items)
+      this.artists = response.artists.items
     }
   }
 }
