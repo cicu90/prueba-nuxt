@@ -44,7 +44,7 @@ export default {
 
   //Modules serverMiddleware
   serverMiddleware: [
-    { path: "/server-middleware", handler: "~/server-middleware/server.js" },
+    { path: "/server-middleware", handler: "~/server-middleware/serverM.js" },
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules

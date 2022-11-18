@@ -2,7 +2,8 @@
   <div class="container">
     <form>
       <b-form-input v-model="queryName" type="text" name="find" class="mb-2" placeholder="Search you artists here" />
-      <b-button @click.prevent="getArtists" variant="success">Search</b-button>
+      <b-button variant="success" @click.prevent="getArtists">Search
+      </b-button>
     </form>
   </div>
 </template>
@@ -13,6 +14,7 @@ export default {
   data () {
     return {
       queryName: '',
+      token: '',
       response: {},
       artists: []
     }
@@ -22,14 +24,14 @@ export default {
   },
   methods: {
     async fetch () {
-      const response = await this.$axios.$get('/server-middleware/login'
-      ).then(response => response)
-      console.log('response', response)
+      this.token = await this.$axios.$get('/server-middleware/login'
+      )
+      console.log('response', this.token)
     },
     async getArtists () {
-      const response = await this.$axios.$get(`/server-middleware/artists/${this.queryName}`
-      ).then(response => response)
-      console.log('response', response)
+      const response = await this.$axios.$get(`/server-middleware/artists/${this.token}/${this.queryName}`
+      )
+      console.log('response', response.artists.items)
     }
   }
 }
