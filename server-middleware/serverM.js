@@ -30,12 +30,7 @@ app.get('/login', async function (req, res) {
   var basicToken = await request.post(authOptions, function (error, response, body) {
     // use the access token to access the Spotify Web API
     res.send(response.body.access_token);
-
-    // response.send(
-    //   response.body.token_type + " " + response.body.access_token
-    // )
   });
-  // res.send({'basicToken': basicToken});
 })
 
 app.get('/artists/:accessToken/:query', async function (req, res) {
@@ -50,25 +45,20 @@ app.get('/artists/:accessToken/:query', async function (req, res) {
   })
   console.log(1, 'artista aqui')
 });
-const doLogin = async (req, res) => {
-  //your application requests authorization
-  authOptions = {
-    url: 'https://accounts.spotify.com/api/token',
-    headers: {
-      'Authorization': 'Basic ' + (Buffer.from(client_id + ':' + client_secret).toString('base64'))
-    },
-    form: {
-      grant_type: 'client_credentials'
-    },
-    json: true
-  };
 
-  var basicToken = ""
-  await request.post(authOptions, function (error, response, body) {
-    // use the access token to access the Spotify Web API
-    basicToken = response.body.token_type + " " + response.body.access_token;
-  });
-  return basicToken
-}
+app.get('/artist/:accessToken/:id', async function (req, res) {
+  console.log(22, 'id artists')
+
+  var options = {
+    url: `https://api.spotify.com/v1/artists/${req.params.id}`,
+    headers: {
+      'Authorization': `Bearer ${req.params.accessToken}`,
+    }
+  }
+  await request.get(options, function (error, response, body) {
+    console.log(2, 'id artists')
+    res.send(response.body);
+  })
+})
 
 module.exports = app

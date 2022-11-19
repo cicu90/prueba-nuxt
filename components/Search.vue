@@ -1,10 +1,13 @@
 <template>
-  <div class="container">
+  <div class="container d-flex p-2 flex-column">
+    <div class="col-12 flex-column">
     <form>
       <b-form-input v-model="queryName" type="text" name="find" class="mb-2" placeholder="Search you artists here" />
       <b-button variant="success" @click.prevent="getArtists">Search
       </b-button>
     </form>
+  </div>
+  <div class="col-12">
     <ul>
       <li v-for="artist of artists" :key="artist.id">
         <NuxtLink :to="`/${artist.id}`">
@@ -12,6 +15,7 @@
         </NuxtLink>
       </li>
     </ul>
+  </div>
   </div>
 </template>
 
